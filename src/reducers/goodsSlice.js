@@ -15,7 +15,8 @@ const goodsSlice = createSlice({
                 id: Date.now(),
                 name: action.payload.name,
                 description: action.payload.description,
-                price: action.payload.price
+                price: action.payload.price,
+                available: action.payload.available
             }];
         }, 
         remove: (state, action) => {
