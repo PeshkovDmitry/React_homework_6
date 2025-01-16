@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../reducers/goodsSlice';
+import { changeAvailable, remove } from '../reducers/goodsSlice';
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -29,6 +29,11 @@ function GoodsItemsList() {
     const onDeleteButtonClick = (e) => { 
         dispatch(remove(e.target.value));
     };
+
+    const onChangeAvailableButtonClick = (e) => { 
+        dispatch(changeAvailable(e.target.value));
+    };
+
     
     return (
         <Box
@@ -64,7 +69,7 @@ function GoodsItemsList() {
                             <TableCell align="right">{item.price}</TableCell>
                             <TableCell align="right">{item.available ? "доступно" : "не доступно"}</TableCell>
                             <TableCell align="right">
-                                <Button variant="contained">Сменить доступность</Button>
+                                <Button variant="contained" value={item.id} onClick={onChangeAvailableButtonClick}>Сменить доступность</Button>
                             </TableCell>
                             <TableCell align="right">
                                 <Button variant="contained">Редактировать</Button>

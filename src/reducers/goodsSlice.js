@@ -22,8 +22,11 @@ const goodsSlice = createSlice({
         remove: (state, action) => {
             state.goods = state.goods.filter((item) => item.id != action.payload);
         },
+        changeAvailable: (state, action) => {
+            state.goods.filter((item) => item.id == action.payload).forEach((item) => item.available = !item.available);
+        }
     }
 });
 
-export const { add, remove } = goodsSlice.actions;
+export const { add, remove, changeAvailable } = goodsSlice.actions;
 export default goodsSlice.reducer; 
