@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
-function NewGoodsItem() {
+function NewGoodsItemForm() {
     return (
         <Box
         sx={{
@@ -46,4 +46,4 @@ function NewGoodsItem() {
     );
 }
 
-export default NewGoodsItem;
+export default NewGoodsItemForm;
